@@ -1,0 +1,47 @@
+[
+  {
+    "fullName": "Nguyễn Văn A",
+    "email": "a@hcmut.edu.vn",
+    "phone": "0909123456",
+    "major": "Kỹ thuật phần mềm",
+    "role": "sinh_vien",
+    "gpa": "3.4",
+    "studentYear": "4"
+  },
+  {
+    "fullName": "Duy Hữu Nguyễn",
+    "email": "1duytk123@gmail.com",
+    "phone": "0383912499",
+    "major": "sadas",
+    "role": "sinh_vien",
+    "gpa": "7",
+    "studentYear": "04"
+  },
+  {
+    "fullName": "Duy Hữu Nguyếnda",
+    "email": "1duytk123@gmail.xn--cmad-qqa",
+    "phone": "0383912499sd",
+    "major": "sadasds",
+    "role": "sinh_vien",
+    "gpa": "7",
+    "studentYear": "3"
+  },
+  {
+    "fullName": "Duy Hữu Nguyễn",
+    "email": "phatassassin06062002@gmail.comdasdsad",
+    "phone": "0383912499",
+    "major": "abc",
+    "role": "giang_vien",
+    "gpa": "3.6",
+    "studentYear": "4"
+  },
+  {
+    "fullName": "ád",
+    "email": "1duytk123@gmail.coms",
+    "phone": "đá",
+    "major": "ád",
+    "role": "sinh_vien",
+    "gpa": "3.01",
+    "studentYear": "1"
+  }
+]

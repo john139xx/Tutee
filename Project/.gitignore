@@ -1,0 +1,38 @@
+#tex
+*.aux
+*.bcf
+*.log
+*.lot
+*.out
+*.run.xml
+*.toc
+
+# IDE 
+.vscode/
+# Node js 
+node_modules/
+**/node_modules/
+
+# Vite / dev cache / build
+.vite/
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Server
+FlashCard_App/Server/node_modules/
+
+

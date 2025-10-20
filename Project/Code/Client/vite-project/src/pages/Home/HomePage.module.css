@@ -1,0 +1,138 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.mainContent {
+  display: flex;
+  flex-grow: 1;
+}
+
+.contentArea {
+  flex-grow: 1;
+  background-color: #f5f7fb;
+  padding: 30px 60px;
+  overflow-y: auto;
+}
+
+/* Tabs */
+.tabContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.tabButton {
+  background-color: #e2e7fa;
+  border: none;
+  padding: 10px 25px;
+  margin: 0 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tabButton:hover {
+  background-color: #d3defd;
+}
+
+.activeTab {
+  background-color: #4a69e2;
+  color: white;
+}
+
+/* Course List */
+.courseList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.courseCard {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+}
+
+.courseCard:hover {
+  transform: translateY(-2px);
+  background-color: #f9faff;
+}
+
+.courseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.courseName {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Course details */
+.courseDetails {
+  margin-top: 10px;
+  background-color: #f0f3ff;
+  border-radius: 8px;
+  padding: 10px 16px;
+  animation: expandFade 0.3s ease-in-out;
+}
+
+.courseDetails p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.addButton {
+  background-color: #4a69e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.addButton:hover {
+  background-color: #3956c2;
+}
+
+.removeButton {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+
+.removeButton:hover {
+  background-color: #b32f2b;
+}
+
+.emptyMessage {
+  text-align: center;
+  margin-top: 30px;
+  color: #777;
+  font-size: 15px;
+}
+
+@keyframes expandFade {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
