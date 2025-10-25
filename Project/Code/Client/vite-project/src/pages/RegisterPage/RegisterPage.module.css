@@ -1,0 +1,106 @@
+/* ✅ Nền giống LoginPage */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #89cff0 0%, #4682b4 100%);
+}
+
+/* ✅ Form box */
+.registerBox {
+  background-color: #eef2f9;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.form input:focus {
+  border-color: #4a69e2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 105, 226, 0.3);
+}
+
+/* ✅ Nút “Đăng ký” cùng màu với LoginPage */
+.registerButton {
+  background-color: #4a69e2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #3b55b5; /* cùng tone hover với login */
+}
+
+.message {
+  margin-top: 15px;
+  color: #333;
+  font-weight: 500;
+}
+
+.loginText {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 15px;
+  color: #333;
+}
+
+/* ✅ Link “Đăng nhập” cũng đồng bộ màu */
+.loginLink {
+  color: #4a69e2;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+  color: #2f4ecf;
+  text-decoration: underline;
+}
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+

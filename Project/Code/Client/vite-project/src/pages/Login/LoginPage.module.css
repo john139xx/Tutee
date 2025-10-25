@@ -61,6 +61,26 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.signupText {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #333;
+}
+
+.signupLink {
+  color: #4a69e2;
+  font-weight: 700;        /* ✅ in đậm hơn */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signupLink:hover {
+  color: #2f4ecf;          /* ✅ chuyển xanh đậm hơn khi hover */
+  text-decoration: underline;
+  transform: scale(1.03);  /* ✅ hiệu ứng nhẹ khi di chuột */
+}
+
 .loginButton:hover {
   background-color: #3b55b5;
 }

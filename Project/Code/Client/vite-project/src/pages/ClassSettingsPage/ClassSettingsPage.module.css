@@ -1,0 +1,29 @@
+.container {
+  padding: 30px;
+  background-color: #f9fafc;
+  height: 100vh;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 300px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #4a69e2;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

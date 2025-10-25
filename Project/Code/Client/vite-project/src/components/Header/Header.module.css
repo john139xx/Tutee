@@ -2,68 +2,98 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  height: 60px;
-  width: 100%;
+  background-color: #f8f9fc;
+  height: 70px;
+  padding: 0 20px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.leftSection {
+/* --- LEFT SECTION --- */
+.left {
   display: flex;
   align-items: center;
 }
 
-.menuIcon {
-  font-size: 24px;
+.menuButton {
+  font-size: 22px;
+  background: none;
+  border: none;
   cursor: pointer;
-  margin-right: 20px;
-  /* Thêm dòng này để hiệu ứng chuyển màu mượt mà */
-  transition: color 0.2s ease;
+  margin-right: 16px;
 }
 
-/* Thêm đoạn này để định nghĩa hiệu ứng khi hover */
-.menuIcon:hover {
-  color: #4a69e2; /* Màu xanh của sidebar */
+.logoContainer {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  height: 30px;
-  margin-right: 8px;
+  height: 40px; /* ✅ logo vừa đẹp */
+  width: auto;
+  margin-right: 10px;
 }
 
 .logoText {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 700;
   color: #333;
+  letter-spacing: 0.5px;
 }
 
-.rightSection {
+/* --- RIGHT SECTION --- */
+.right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
-.mentorButton,
-.loginButton {
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-}
-
-.mentorButton {
-  background-color: #ffffff;
-  color: #4a69e2;
-  border: 1px solid #4a69e2;
-}
-
+/* Buttons */
 .loginButton {
   background-color: #4a69e2;
   color: white;
   border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.loginButton:hover {
+  background-color: #3b55b5;
+}
+
+.mentorButton {
+  background-color: transparent;
+  border: 1.8px solid #4a69e2;
+  color: #4a69e2;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.mentorButton:hover {
+  background-color: #4a69e2;
+  color: white;
+}
+
+.logoutButton {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.logoutButton:hover {
+  background-color: #b52b27;
 }

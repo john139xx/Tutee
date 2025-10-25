@@ -1,35 +1,29 @@
-// src/components/Sidebar/Sidebar.tsx
+import { NavLink } from "react-router-dom";
+import styles from "./Sidebar.module.css";
+import { BookOpen, GraduationCap, Pencil } from "lucide-react";
 
-import React from 'react';
-import styles from './Sidebar.module.css';
-import { FaBook, FaGraduationCap, FaPen } from 'react-icons/fa';
-
-interface SidebarProps {
-  isExpanded: boolean;
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ isExpanded }) => {
+const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
   return (
-    <div className={`${styles.sidebar} ${isExpanded ? '' : styles.collapsed}`}>
+    <div className={`${styles.sidebar} ${collapsed ? styles.collapsed : ""}`}>
       <ul className={styles.navList}>
         <li className={styles.navItem}>
-          <a href="#" className={styles.navLink}>
-            <FaBook className={styles.navIcon} />
-            {isExpanded && <span className={styles.navText}>Thư viện</span>}
-          </a>
+          <NavLink to="/library" className={styles.navLink}>
+            <BookOpen className={styles.navIcon} />
+            <span className={styles.navText}>Thư viện</span>
+          </NavLink>
         </li>
         <li className={styles.navItem}>
-          <a href="#" className={styles.navLink}>
-            <FaGraduationCap className={styles.navIcon} />
-            {isExpanded && <span className={styles.navText}>Lớp học</span>}
-          </a>
+          <NavLink to="/classes" className={styles.navLink}>
+            <GraduationCap className={styles.navIcon} />
+            <span className={styles.navText}>Lớp học</span>
+          </NavLink>
         </li>
-<li className={styles.navItem}>
-      <a href="#" className={styles.navLink}>
-        <FaPen className={styles.navIcon} /> {/* Thành FaPen */}
-        {isExpanded && <span className={styles.navText}>Tùy chỉnh lớp học</span>}
-      </a>
-    </li>
+        <li className={styles.navItem}>
+          <NavLink to="/class-settings" className={styles.navLink}>
+            <Pencil className={styles.navIcon} />
+            <span className={styles.navText}>Tùy chỉnh lớp học</span>
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

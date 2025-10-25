@@ -1,95 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import styles from "./HomePage.module.css";
+import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
   const [expandedCourse, setExpandedCourse] = useState<number | null>(null);
   const [registeredCourses, setRegisteredCourses] = useState<number[]>([]);
   const [activeTab, setActiveTab] = useState<"available" | "registered">("available");
+  const [user, setUser] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  // Kiểm tra đăng nhập
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (!storedUser) {
+      navigate("/"); // Chưa đăng nhập thì về Login
+    } else {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser.username);
+    }
+  }, [navigate]);
 
   const toggleSidebar = () => setIsSidebarExpanded(!isSidebarExpanded);
 
-  // Danh sách tất cả các môn học
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
+  // Danh sách môn học
   const courses = [
-  {
-    id: 1,
-    name: "Pháp luật đại cương",
-    teacher: "TS. Nguyễn Văn A",
-    schedule: "Thứ 2 & Thứ 4, 7:30 - 9:30",
-    location: "Phòng B203, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 2,
-    name: "Giải tích 1",
-    teacher: "ThS. Lê Thị B",
-    schedule: "Thứ 3 & Thứ 6, 9:45 - 11:45",
-    location: "Phòng A402, Cơ sở Dĩ An",
-  },
-  {
-    id: 3,
-    name: "Công nghệ phần mềm",
-    teacher: "TS. Phạm Minh C",
-    schedule: "Thứ 5, 13:30 - 16:30",
-    location: "Phòng C102, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 4,
-    name: "Cấu trúc dữ liệu và giải thuật",
-    teacher: "TS. Nguyễn Văn D",
-    schedule: "Thứ 3, 13:00 - 15:00",
-    location: "Phòng B201, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 5,
-    name: "Hệ điều hành",
-    teacher: "ThS. Lâm Quốc E",
-    schedule: "Thứ 5, 9:30 - 11:30",
-    location: "Phòng C204, Cơ sở Dĩ An",
-  },
-  {
-    id: 6,
-    name: "Mạng máy tính",
-    teacher: "TS. Nguyễn Thị F",
-    schedule: "Thứ 6, 13:30 - 16:00",
-    location: "Phòng A304, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 7,
-    name: "Cơ sở dữ liệu",
-    teacher: "ThS. Phạm Văn G",
-    schedule: "Thứ 2 & Thứ 5, 9:45 - 11:45",
-    location: "Phòng B108, Cơ sở Dĩ An",
-  },
-  {
-    id: 8,
-    name: "Trí tuệ nhân tạo",
-    teacher: "TS. Trần Hữu H",
-    schedule: "Thứ 4, 13:30 - 16:30",
-    location: "Phòng C303, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 9,
-    name: "Kinh tế học đại cương",
-    teacher: "PGS. Nguyễn Minh I",
-    schedule: "Thứ 3, 7:30 - 9:30",
-    location: "Phòng D204, Cơ sở Lý Thường Kiệt",
-  },
-  {
-    id: 10,
-    name: "Tiếng Anh chuyên ngành CNTT",
-    teacher: "ThS. Lê Kim J",
-    schedule: "Thứ 6, 15:00 - 17:00",
-    location: "Phòng E105, Cơ sở Dĩ An",
-  },
-];
+    { id: 1, name: "Pháp luật đại cương", teacher: "TS. Nguyễn Văn A", schedule: "Thứ 2 & Thứ 4, 7:30 - 9:30", location: "Phòng B203, Cơ sở Lý Thường Kiệt" },
+    { id: 2, name: "Giải tích 1", teacher: "ThS. Lê Thị B", schedule: "Thứ 3 & Thứ 6, 9:45 - 11:45", location: "Phòng A402, Cơ sở Dĩ An" },
+    { id: 3, name: "Công nghệ phần mềm", teacher: "TS. Phạm Minh C", schedule: "Thứ 5, 13:30 - 16:30", location: "Phòng C102, Cơ sở Lý Thường Kiệt" },
+    { id: 4, name: "Cấu trúc dữ liệu và giải thuật", teacher: "TS. Nguyễn Văn D", schedule: "Thứ 3, 13:00 - 15:00", location: "Phòng B201, Cơ sở Lý Thường Kiệt" },
+    { id: 5, name: "Hệ điều hành", teacher: "ThS. Lâm Quốc E", schedule: "Thứ 5, 9:30 - 11:30", location: "Phòng C204, Cơ sở Dĩ An" },
+  ];
 
   const toggleExpand = (id: number) => {
     setExpandedCourse(expandedCourse === id ? null : id);
   };
 
-  // Đăng ký môn học
   const handleAddCourse = (id: number) => {
     if (!registeredCourses.includes(id)) {
       setRegisteredCourses([...registeredCourses, id]);
@@ -99,13 +52,11 @@ const HomePage: React.FC = () => {
     }
   };
 
-  // Hủy đăng ký môn học
   const handleRemoveCourse = (id: number) => {
     setRegisteredCourses(registeredCourses.filter((courseId) => courseId !== id));
     alert("🗑️ Hủy đăng ký môn học thành công!");
   };
 
-  // Lọc danh sách theo tab
   const displayedCourses =
     activeTab === "available"
       ? courses.filter((c) => !registeredCourses.includes(c.id))
@@ -117,20 +68,21 @@ const HomePage: React.FC = () => {
       <main className={styles.mainContent}>
         <Sidebar isExpanded={isSidebarExpanded} />
         <div className={styles.contentArea}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2>Xin chào, {user || "Người dùng"} 👋</h2>
+           
+          </div>
+
           {/* Tabs */}
           <div className={styles.tabContainer}>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "available" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "available" ? styles.activeTab : ""}`}
               onClick={() => setActiveTab("available")}
             >
               Đăng ký môn
             </button>
             <button
-              className={`${styles.tabButton} ${
-                activeTab === "registered" ? styles.activeTab : ""
-              }`}
+              className={`${styles.tabButton} ${activeTab === "registered" ? styles.activeTab : ""}`}
               onClick={() => setActiveTab("registered")}
             >
               Môn đã đăng ký
@@ -157,29 +109,13 @@ const HomePage: React.FC = () => {
 
                   {expandedCourse === course.id && (
                     <div className={styles.courseDetails}>
-                      <p>
-                        <strong>Giảng viên:</strong> {course.teacher}
-                      </p>
-                      <p>
-                        <strong>Thời khóa biểu:</strong> {course.schedule}
-                      </p>
-                      <p>
-                        <strong>Địa điểm:</strong> {course.location}
-                      </p>
+                      <p><strong>Giảng viên:</strong> {course.teacher}</p>
+                      <p><strong>Thời khóa biểu:</strong> {course.schedule}</p>
+                      <p><strong>Địa điểm:</strong> {course.location}</p>
                       {activeTab === "available" ? (
-                        <button
-                          className={styles.addButton}
-                          onClick={() => handleAddCourse(course.id)}
-                        >
-                          Đăng ký
-                        </button>
+                        <button className={styles.addButton} onClick={() => handleAddCourse(course.id)}>Đăng ký</button>
                       ) : (
-                        <button
-                          className={styles.removeButton}
-                          onClick={() => handleRemoveCourse(course.id)}
-                        >
-                          Hủy đăng ký
-                        </button>
+                        <button className={styles.removeButton} onClick={() => handleRemoveCourse(course.id)}>Hủy đăng ký</button>
                       )}
                     </div>
                   )}

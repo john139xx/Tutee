@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // ✅ Đặt bên trong component
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,10 +22,8 @@ const LoginPage: React.FC = () => {
 
       if (res.status === 200) {
         setMessage("Đăng nhập thành công!");
-        // ✅ Lưu thông tin vào localStorage
         localStorage.setItem("user", JSON.stringify({ username: email }));
-        // ✅ Chuyển hướng sau 0.8s
-        setTimeout(() => navigate("/"), 800);
+        navigate("/home");
       }
     } catch (err: any) {
       setMessage(err.response?.data?.message || "Đăng nhập thất bại!");
@@ -36,8 +34,8 @@ const LoginPage: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.loginBox}>
         <div className={styles.logoContainer}>
-          <img src={logo} alt="BK Tutor Logo" className={styles.logo} />
-          <span className={styles.logoText}>TUTOR</span>
+          <img src={logo} alt="BK Mentor Logo" className={styles.logo} />
+          <span className={styles.logoText}>BK MENTOR</span>
         </div>
 
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -73,6 +71,17 @@ const LoginPage: React.FC = () => {
             {message}
           </p>
         )}
+
+        {/* ✅ Dòng gợi ý đăng ký mới */}
+        <p className={styles.signupText}>
+          Chưa có tài khoản?{" "}
+          <span
+            className={styles.signupLink}
+            onClick={() => navigate("/register")}
+          >
+            Đăng ký ngay!
+          </span>
+        </p>
       </div>
     </div>
   );
